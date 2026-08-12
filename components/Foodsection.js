@@ -6,39 +6,13 @@ import {
   Image,
 } from 'react-native';
 
-export default function PlacesSection({ searchText }) {
+import { foods } from '../data/data';
 
-  const foods = [
-    {
-      id: '1',
-      name: 'Fondue',
-      description: 'Melted cheese served with pieces of bread.',
-      image: require('../assets/fondue.jpeg'),
-    },
-    {
-      id: '2',
-      name: 'Raclette',
-      description: 'Melted cheese traditionally served with potatoes.',
-      image: require('../assets/raclette.jpeg'),
-    },
-    {
-      id: '3',
-      name: 'Rösti',
-      description: 'A crispy potato dish popular throughout Switzerland.',
-      image: require('../assets/rosti.jpeg'),
-    },
-    {
-      id: '4',
-      name: 'Swiss Chocolate',
-      description: 'One of the most famous chocolates in the world.',
-      image: require('../assets/chocolate.jpeg'),
-    },
-  ];
+export default function Foodsection({ searchText }) {
 
   const filteredFoods = foods.filter(food =>
-  food.name.toLowerCase().includes(
-    searchText.toLowerCase()
-  )
+    food.name.toLowerCase().includes(searchText.toLowerCase()) ||
+    food.description.toLowerCase().includes(searchText.toLowerCase())
   );
 
   return (

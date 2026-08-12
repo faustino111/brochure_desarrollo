@@ -7,39 +7,13 @@ import {
   Image,
 } from 'react-native';
 
+import { places } from '../data/data';
+
 export default function PlacesSection({ searchText }) {
 
-  const places = [
-    {
-      id: '1',
-      name: 'Matterhorn',
-      description: 'One of the most famous mountains in the world.',
-      image: require('../assets/matterhorn.jpeg'),
-    },
-    {
-      id: '2',
-      name: 'Lake Geneva',
-      description: 'A beautiful lake shared between Switzerland and France.',
-      image: require('../assets/lake-geneva.jpeg'),
-    },
-    {
-      id: '3',
-      name: 'Jungfraujoch',
-      description: 'Known as the Top of Europe because of its altitude.',
-      image: require('../assets/jungfraujoch.jpeg'),
-    },
-    {
-      id: '4',
-      name: 'Rhine Falls',
-      description: 'The largest waterfall in Europe.',
-      image: require('../assets/rhine-falls.jpeg'),
-    },
-  ];
-
   const filteredPlaces = places.filter(place =>
-  place.name.toLowerCase().includes(
-    searchText.toLowerCase()
-  )
+    place.name.toLowerCase().includes(searchText.toLowerCase()) ||
+    place.description.toLowerCase().includes(searchText.toLowerCase())
   );
 
   return (
