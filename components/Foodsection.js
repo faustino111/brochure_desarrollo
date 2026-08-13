@@ -15,6 +15,7 @@ export default function Foodsection({ searchText }) {
     food.description.toLowerCase().includes(searchText.toLowerCase())
   );
 
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
